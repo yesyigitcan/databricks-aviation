@@ -1,0 +1,14 @@
+resources:
+  pipelines:
+    mt_005_aviation_sdp:
+      name: MT-005 - Aviation SDP
+      libraries:
+        - glob:
+            include: ../src/transformations/**
+      catalog: aviation
+      channel: CURRENT
+      continuous: false
+      photon: true
+      root_path: ../src
+      schema: dev
+      serverless: true
