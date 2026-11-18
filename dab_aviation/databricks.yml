@@ -23,10 +23,22 @@ variables:
     default: "1082604319579575"
   schedule_status:
     description: The schedule status to use
-    default: PAUSED
+    default: UNPAUSED
+  schedule_cron:
+    description: The job schedule cron expression
+    default: "9 0 6 * * ?"
+  schedule_timezone:
+    description: The job schedule timezone
+    default: UTC
   performance_target:
     description: The performance target to use
-    default: STANDARD
+    default: PERFORMANCE_OPTIMIZED
+  pipeline_photon:
+    description: Whether Photon is enabled for the pipeline
+    default: true
+  pipeline_serverless:
+    description: Whether serverless compute is enabled for the pipeline
+    default: true
   notify_email:
     description: The email to notify
     default: yesyigitcan@gmail.com
@@ -44,6 +56,12 @@ targets:
     variables:
       catalog: aviation
       schema: dev
+      schedule_status: UNPAUSED
+      schedule_cron: "9 0 6 * * ?"
+      schedule_timezone: UTC
+      performance_target: PERFORMANCE_OPTIMIZED
+      pipeline_photon: true
+      pipeline_serverless: true
   prod:
     mode: production
     workspace:
@@ -53,6 +71,12 @@ targets:
     variables:
       catalog: aviation
       schema: prod
+      schedule_status: UNPAUSED
+      schedule_cron: "9 0 6 * * ?"
+      schedule_timezone: UTC
+      performance_target: PERFORMANCE_OPTIMIZED
+      pipeline_photon: true
+      pipeline_serverless: true
     permissions:
       - user_name: yesyigitcan@gmail.com
         level: CAN_MANAGE

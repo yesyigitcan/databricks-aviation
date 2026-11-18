@@ -121,12 +121,12 @@ resources:
       notification_settings:
         no_alert_for_canceled_runs: false
         no_alert_for_skipped_runs: false
-      performance_target: PERFORMANCE_OPTIMIZED
+      performance_target: ${var.performance_target}
       queue:
         enabled: true
       schedule:
-        pause_status: UNPAUSED
-        quartz_cron_expression: 9 0 6 * * ?
-        timezone_id: UTC
+        pause_status: ${var.schedule_status}
+        quartz_cron_expression: ${var.schedule_cron}
+        timezone_id: ${var.schedule_timezone}
       timeout_seconds: 0
       webhook_notifications: {}

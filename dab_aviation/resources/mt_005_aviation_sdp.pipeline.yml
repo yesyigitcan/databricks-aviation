@@ -5,10 +5,10 @@ resources:
       libraries:
         - glob:
             include: ../src/transformations/**
-      catalog: aviation
+      catalog: ${var.catalog}
       channel: CURRENT
       continuous: false
-      photon: true
+      photon: ${var.pipeline_photon}
       root_path: ../src
-      schema: dev
-      serverless: true
+      schema: ${var.schema}
+      serverless: ${var.pipeline_serverless}
